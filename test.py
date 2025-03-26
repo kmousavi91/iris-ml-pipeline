@@ -1,8 +1,9 @@
+# test.py
+from scripts.train import train_model
+import numpy as np
 
-import joblib, os
-from sklearn.ensemble import RandomForestClassifier
-model = RandomForestClassifier()
-os.makedirs("/home/kourosh/iris_ml_project/models", exist_ok=True)
-joblib.dump(model, "/home/kourosh/iris_ml_project/models/test_model.pkl")
-os.path.exists("/home/kourosh/iris_ml_project/models/test_model.pkl")
-True
+def test_model_shape():
+    X_train = np.random.rand(10, 4)
+    y_train = np.random.randint(0, 3, 10)
+    model = train_model(X_train, y_train)
+    assert hasattr(model, "predict"), "Model should have predict method"

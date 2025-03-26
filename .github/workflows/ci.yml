@@ -27,5 +27,5 @@ jobs:
 
     - name: Run basic tests
       run: |
-        echo "Tests would run here"
+        python -m pytest test.py
 
